@@ -38,8 +38,18 @@ def sort_temperature(arraylist):
     return templist
 
 
-def calc_median_temperature():
+def calc_median_temperature(arraylist):
     print("Sub: calc_median_temperature")
+    templist = sort_temperature(arraylist)
+    numcount = len(templist)
+    if numcount % 2 == 1:  # Odd number of temp readings, median is the reading in the middle.
+        median = templist[numcount//2]
+    else:
+        median = (templist[numcount//2-1] + templist[numcount//2])/2
+    print("MEDIAN = ", median)
+    return median
+
+
 
 
 
@@ -48,6 +58,7 @@ def main():
     numArray = get_user_input()
     calc_average(numArray)
     find_min_max(numArray)
+    calc_median_temperature(numArray)
 
 
 
